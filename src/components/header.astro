@@ -1,0 +1,27 @@
+---
+import { cn } from '../lib/utils'
+
+const routes = [
+  { href: '/', text: 'Home' },
+  { href: '/writting', text: 'Writting' },
+  { href: '/shooting', text: 'Shooting' },
+]
+
+const pathName = Astro.url.pathname
+---
+
+<header class="py-2">
+  <nav class="flex items-center gap-x-4">
+    {routes.map((route) => (
+      <a
+        href={route.href}
+        class={cn(
+          'text-sm leading-relaxed',
+          pathName === route.href ? 'underline' : ''
+        )}
+      >
+        {route.text}
+      </a>
+    ))}
+  </nav>
+</header>
